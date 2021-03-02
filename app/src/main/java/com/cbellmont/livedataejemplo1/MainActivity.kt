@@ -16,6 +16,43 @@ class MainActivity : AppCompatActivity() {
 
         val model = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
+
+
+        //// METODO 1
+        /*
+        model.pokemonList.observe(this){ list ->
+            var text = ""
+            list.forEach {
+                text += it.nombre
+            }
+            binding.tvValue.text = text
+        }
+
+        model.insertPokemonContinuo()*/
+
+        /////////// METODO 2
+
+
+
+        model.pokemonList2.observe(this){ list ->
+            var text = ""
+            list.forEach {
+                text += it.nombre
+            }
+            binding.tvValue.text = text
+        }
+
+        model.insertPokemonContinuo()
+
+        /*lifecycleScope.launch {
+            model.insertPokemon( Pokemon("Pokemon1", "tipo a", 99))
+            val pokemon = model.getPokemonDeDb()
+            binding.tvValue.text = pokemon.nombre
+        }*/
+
+
+
+
         //var pokemon = model.getPokemonDeDb()
         /* Ejemplo de como leer desde ActivityMain a la base de datos. Pero NO ES RECOMENDABLE.
         lifecycleScope.launch(Dispatchers.IO) {

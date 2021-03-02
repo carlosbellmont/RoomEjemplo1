@@ -2,6 +2,7 @@ package com.cbellmont.livedataejemplo1
 
 import android.app.Application
 import androidx.room.Room
+import kotlinx.coroutines.coroutineScope
 
 class App : Application() {
 
@@ -11,4 +12,6 @@ class App : Application() {
         super.onCreate()
         db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "database-name").build()
     }
+
+
 }

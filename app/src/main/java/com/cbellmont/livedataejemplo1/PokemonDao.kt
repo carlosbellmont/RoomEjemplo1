@@ -1,11 +1,14 @@
 package com.cbellmont.livedataejemplo1
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface PokemonDao {
     @Query("SELECT * FROM Pokemon")
     fun getAll(): List<Pokemon>
+    @Query("SELECT * FROM Pokemon")
+    fun getAllLive(): LiveData<List<Pokemon>>
     @Insert
     fun insert(pokemon: Pokemon)
     @Insert
